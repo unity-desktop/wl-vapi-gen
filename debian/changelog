@@ -1,0 +1,6 @@
+wl-vapi-gen (1.1.0-1) stonking; urgency=medium
+
+  * Initial packaging, from the unity-desktop/wl-vapi-gen fork (DEP-14:
+    debian/ lives on the ubuntu/latest branch).
+
+ -- Muqtadir <contact@muqtxdir.com>  Thu, 24 Sep 2026 19:48:06 +0530

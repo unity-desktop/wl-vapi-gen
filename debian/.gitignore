@@ -1,0 +1,8 @@
+# In-place build state.
+/.debhelper/
+/debhelper-build-stamp
+/files
+/*.substvars
+/*.debhelper.log
+/tmp/
+/wl-vapi-gen/

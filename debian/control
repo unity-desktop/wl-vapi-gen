@@ -1,0 +1,22 @@
+Source: wl-vapi-gen
+Section: devel
+Priority: optional
+Maintainer: Muqtadir <contact@muqtxdir.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ meson,
+ ninja-build,
+ python3,
+Standards-Version: 4.7.0
+Homepage: https://github.com/kotontrion/wl-vapi-gen
+Rules-Requires-Root: no
+Vcs-Browser: https://github.com/unity-desktop/wl-vapi-gen/tree/ubuntu/latest
+Vcs-Git: https://github.com/unity-desktop/wl-vapi-gen.git -b ubuntu/latest
+
+Package: wl-vapi-gen
+Architecture: all
+Depends: python3, ${misc:Depends}
+Description: Vala binding generator for Wayland protocol XML files
+ wl-vapi-gen turns Wayland protocol XML descriptions into Vala bindings, so
+ that a Vala project can talk to a Wayland protocol without hand-written
+ bindings.

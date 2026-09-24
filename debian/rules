@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@ --buildsystem=meson
+
+override_dh_missing:
+	dh_missing --list-missing
+
+# Upstream tags its releases, so the orig tarball is theirs, fetched by uscan.
+get-orig-source:
+	uscan --download-current-version --rename --destdir ..
+
+.PHONY: get-orig-source
