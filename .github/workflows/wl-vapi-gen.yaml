@@ -1,0 +1,31 @@
+---
+name: wl-vapi-gen
+
+on:
+  push:
+    branches: [ubuntu/latest]
+  pull_request:
+    branches: [ubuntu/latest]
+    types: [opened, synchronize, reopened, closed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    if: github.event.action != 'closed'
+    uses: unity-desktop/workflows/.github/workflows/build-deb.yaml@main
+    with:
+      orig-source: true
+      release-branch: ubuntu/latest
+
+  release:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref_name == 'ubuntu/latest'
+    uses: unity-desktop/workflows/.github/workflows/release-deb.yaml@main
+
+  purge:
+    if: github.event.action == 'closed'
+    uses: unity-desktop/workflows/.github/workflows/purge-deb.yaml@main
